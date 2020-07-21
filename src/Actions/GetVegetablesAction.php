@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace PurpleHexagon\Http;
+namespace PurpleHexagon\Actions;
 
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
@@ -30,7 +30,7 @@ class GetVegetablesAction
     }
 
     /**
-     * GET /
+     * GET /vegetables
      *
      * @return ResponseInterface
      */

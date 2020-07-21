@@ -1,0 +1,42 @@
+version: "3.3"
+services:
+  app:
+    build:
+      args:
+        user: censornet
+        uid: 1001
+      context: ./
+      dockerfile: Dockerfile
+    container_name: censornet-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - censornet
+
+  db:
+    image: postgres:10.11
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+      - ./migrate.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5430:5432"
+    networks:
+      - censornet
+
+  nginx:
+    image: nginx:alpine
+    container_name: censornet_nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./nginx:/etc/nginx/conf.d/
+    networks:
+      - censornet
+
+networks:
+  censornet:
+    driver: bridge

@@ -26,6 +26,8 @@ You can use the command line application to seed the database with vegetables an
 
 If you want to run locally please ensure you are running php > 7.4.
 
+If running locally please update config.php with your db credentials.
+
 # Censornet PHP coding test brief
 
 ## Abstract

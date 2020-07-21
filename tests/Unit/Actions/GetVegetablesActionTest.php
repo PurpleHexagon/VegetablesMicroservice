@@ -1,5 +1,6 @@
 <?php
 
+use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ResponseInterface;
 use PurpleHexagon\Actions\GetVegetablesAction;
 use PurpleHexagon\Exceptions\PublicHttpException;
@@ -14,10 +15,11 @@ class GetVegetablesActionTest extends \PHPUnit\Framework\TestCase
      * @var GetVegetablesAction
      */
     protected GetVegetablesAction $action;
+
     /**
-     * @var \Prophecy\Prophecy\ObjectProphecy
+     * @var ObjectProphecy
      */
-    protected \Prophecy\Prophecy\ObjectProphecy $repo;
+    protected ObjectProphecy $repo;
 
     /**
      * Setup

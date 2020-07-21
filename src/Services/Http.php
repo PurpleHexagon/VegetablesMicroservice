@@ -90,6 +90,10 @@ class Http
                 break;
         }
 
+        foreach ($response->getHeaders() as $header => $headerValue) {
+            header("$header: $headerValue[0]");
+        }
+
         echo $response->getBody();
     }
 
